@@ -1,6 +1,6 @@
 // Configurar la fecha objetivo (Año, Mes [0 al 11], Día, Hora, Minutos, Segundos)
 // Nota: En JS los meses van de 0 a 11 (0 = Enero, 8 = Septiembre, 11 = Diciembre).
-const birthdayDate = new Date(2026, 8, 10, 0, 0, 0).getTime();
+const birthdayDate = new Date(2026, 8, 24, 7, 30, 0).getTime();
 
 // --- 1. ELEMENTOS DE AUDIO Y VIDEO ---
 const bgMusic = document.getElementById('bg-music');
