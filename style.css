@@ -1,0 +1,263 @@
+:root {
+    /* Paleta basada en tono guinda con derivados y acentos dorados */
+    --bg-base: #1d030a;          /* Guinda oscuro profundo */
+    --bg-surface: #2b0813;       /* Guinda medio */
+    --card-bg: rgba(56, 12, 26, 0.45); /* Guinda transparente */
+    
+    --gold-primary: #f3d082;     /* Dorado brillante */
+    --gold-soft: #dfb15b;        /* Dorado suave */
+    --gold-muted: rgba(243, 208, 130, 0.25);
+    
+    --text-primary: #fff5ea;     /* Blanco cálido */
+    --text-muted: #d4b5b8;       /* Rosado/guinda desvaído */
+    --border-gold: rgba(243, 208, 130, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, var(--bg-surface) 0%, var(--bg-base) 100%);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- DESTELLOS DORADOS (FONDO) --- */
+#gold-sparkles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.sparkle {
+    position: absolute;
+    background: radial-gradient(circle, var(--gold-primary) 0%, rgba(243, 208, 130, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatSparkle 6s infinite ease-in-out;
+}
+
+@keyframes floatSparkle {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 10px var(--gold-primary);
+    }
+    100% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* --- ESTRUCTURA Y TRANSICIONES DE SECCIONES --- */
+.section {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 800px;
+    
+    /* Animación de entrada por defecto */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    pointer-events: none;
+}
+
+/* --- TIPOGRAFÍA Y TÍTULOS --- */
+.subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--gold-primary);
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px var(--gold-muted);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ffffff 0%, var(--gold-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-title span {
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* --- CUENTA REGRESIVA --- */
+.countdown-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.time-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 18px 22px;
+    min-width: 80px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(243, 208, 130, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-primary);
+}
+
+.time-box span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold-primary);
+    text-shadow: 0 0 10px var(--gold-muted);
+}
+
+.time-box p {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* --- BOTONES ELEGANTES --- */
+.btn {
+    background: linear-gradient(135deg, rgba(243, 208, 130, 0.1) 0%, rgba(56, 12, 26, 0.6) 100%);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-primary);
+    padding: 14px 34px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 2.5px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn:hover {
+    background: var(--gold-primary);
+    color: var(--bg-base);
+    box-shadow: 0 0 25px rgba(243, 208, 130, 0.6);
+    transform: translateY(-2px);
+}
+
+/* --- TARJETA DE CARTA --- */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    padding: 35px;
+    text-align: left;
+    backdrop-filter: blur(16px);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    color: var(--gold-primary);
+    margin-bottom: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.signature {
+    margin-top: 20px;
+    color: var(--gold-soft);
+    font-style: italic;
+    text-align: right;
+}
+
+/* --- GALERÍA POLAROID --- */
+.polaroid-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.polaroid {
+    background: #fffdfa;
+    color: #2b0813;
+    padding: 12px 12px 22px 12px;
+    border-radius: 6px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    width: 190px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.polaroid p {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    margin-top: 12px;
+}
+
+.rot-left { transform: rotate(-3deg); }
+.rot-right { transform: rotate(4deg); }
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) translateY(-8px);
+    z-index: 10;
+    box-shadow: 0 20px 35px rgba(243, 208, 130, 0.3);
+}
+
+/* --- VIDEO --- */
+.video-wrapper {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    background: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+}

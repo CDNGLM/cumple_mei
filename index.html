@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Her Special Day</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="audio/musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Contenedor para destellos dorados dinámicos -->
+    <div id="gold-sparkles-container"></div>
+
+    <!-- SECCIÓN 1: CUENTA REGRESIVA -->
+    <section id="sec-countdown" class="section active">
+        <p class="subtitle">✦ UNA SORPRESA PARA MI NIÑA ✦</p>
+        <h1 class="main-title">Tu Dia Especial <br><span>is Coming</span></h1>
+        
+        <div class="countdown-container">
+            <div class="time-box"><span id="days">00</span><p>DIAS</p></div>
+            <div class="time-box"><span id="hours">00</span><p>HORAS</p></div>
+            <div class="time-box"><span id="minutes">00</span><p>MINS</p></div>
+            <div class="time-box"><span id="seconds">00</span><p>SEGS</p></div>
+        </div>
+
+        <button id="btn-open-gift" class="btn">✦ LO PUEDES ABRIR ✦</button>
+    </section>
+
+    <!-- SECCIÓN 2: CARTA PRINCIPAL -->
+    <section id="sec-letter" class="section hidden">
+        <h1 class="main-title">Cartita</h1>
+        <div class="card">
+            <h3>OYE LINDA MEEEI! 💖</h3>
+            <p>
+                Hoy es tu cumple y deseo que la pases muy bonito. Muchas gracias por aparecer en mi vida, espero que todo lo que hice por tu cumple te encante. Ignora a todos esos que te tienen envidia, TÚ eres unica y perfecta, que nadie apague tu brillo y que todo te salga bien. Lucharé por tí y que nadie te menosprecie. Un FELIZ CUMPLEAÑOS, TE QUIERO MUUUUUCHO como una vaquita :3.
+
+            </p>
+            <p> </p>
+            <p>
+                Es un privilegio para mí quererte y el haberte conocido fue lo mejor que me pudo pasar, no dejes que nadie te rompa el corazón y tampoco abandones a Dios, siempre sigue su camino. Si te sientes mal, ven conmigo y si nadie te quiere escuchar, yo te escucho. Lo leeras en las cartas, para mi eres la única en el mundo, yo sé que seré tu pareja. jsajsjasja ya me perdí muaaa byeee
+            </p>
+            <p> </p>
+            <p class="signature">Siempre y por siempre te cuidaré ✨</p>
+        </div>
+        <button id="btn-to-memories" class="btn">OUR MEMORIES ✦</button>
+    </section>
+
+    <!-- SECCIÓN 3: GALERÍA POLAROID -->
+    <section id="sec-memories" class="section hidden">
+        <p class="subtitle">✦ TODOS ESTOS MOMENTOS CAPTURADOS CON MUCHO CARIÑO ✦</p>
+        <h2 class="main-title">NUESTRAS FOTOS</h2>
+        
+        <div class="polaroid-grid">
+            <div class="polaroid rot-left">
+                <img src="img/foto1.jpeg" alt="Recuerdo 1">
+                <p>Descubre Sampa</p>
+            </div>
+            <div class="polaroid rot-right">
+                <img src="img/foto2.jpeg" alt="Recuerdo 2">
+                <p>Tu primer puesto</p>
+            </div>
+            <div class="polaroid rot-left">
+                <img src="img/foto3.jpeg" alt="Recuerdo 3">
+                <p>Me invitaste esooo</p>
+            </div>
+        </div>
+
+        <button id="btn-to-video" class="btn">WATCH VIDEO ✦</button>
+    </section>
+
+    <!-- SECCIÓN 4: VIDEO DE RECUERDOS -->
+    <section id="sec-video" class="section hidden">
+        <p class="subtitle">✦ UN VIDEO ESPECIAL Y BONITO ✦</p>
+        <h2 class="main-title">Para Tí</h2>
+        
+        <div class="video-wrapper">
+            <video controls playsinline preload="auto" poster="img/foto1.jpeg">
+                <source src="video/video1.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
